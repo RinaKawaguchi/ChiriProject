@@ -154,6 +154,16 @@
       background: var(--primary);
     }
 
+    .badge-static {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .badge-static:hover {
+      transform: none;
+      background: var(--accent);
+    }
+
     footer {
       text-align: center;
       margin-top: 3rem;
@@ -175,7 +185,7 @@
     <header>
       <img src="./assets/golfbuddy.png" alt="GolfBuddy" class="header-icon">
       <h1 class="logo">GolfBuddy</h1>
-      <p class="tagline">身内ゴルフの記録を、もっと簡単に</p>
+      <p class="tagline">ゴルフのオリンピック得点をスマートに</p>
     </header>
 
     <section>
@@ -222,7 +232,7 @@
       <p class="cta-title">このアプリについて</p>
       <p class="cta-text">GolfBuddyは個人で開発・運営しています。<br>サーバー費用などの維持コストがかかっています。</p>
       <p class="cta-text">もしラウンドがより楽しくなったら、<br>アプリ内から開発を応援していただけると嬉しいです。</p>
-      <a href="https://apps.apple.com/search?term=Golf%20Buddy%20ChiriProject" class="badge" target="_blank" rel="noopener noreferrer">👉 App Storeで見る</a>
+      <p class="badge badge-static">2026年3月下旬リリース予定</p>
     </section>
 
   </div>
