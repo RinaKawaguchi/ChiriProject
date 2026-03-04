@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="YesNo Tonight - 当たり前の日常の中に、ほんの少しのドキドキを。yes/no だけで伝える、夫婦やパートナー向けアプリ。">
+  <title>YesNo Tonight - きっかけをそっと置いておく</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* YesNo アプリのテーマカラー（app/mobile/constants/colors.ts） */
+    :root {
+      --accent: #DB6E98;
+      --accentLight: #ECB0CC;
+      --accentPale: #F5E8EE;
+      --accentLevel2Background: #FAEEF3;
+      --accentBackground: #F8E8EF;
+      --pairedStatusBg: #F5EDEB;
+      --resultLevel2Bg: #F5EDEB;
+      --resultLevel3Bg: #F2E8E6;
+      --tabBar: #8ECAE6;
+      --tabBarBorder: #6BA3BD;
+      --tabBarInactive: #5A7A8A;
+      --darkGray: #3D3A3C;
+      --mediumGray: #5C5A5B;
+      --lightGray: #9A9698;
+      --text: #2D2B2C;
+      --textSecondary: #5C5A5B;
+      --textMuted: #7A7879;
+      --borderLight: #E5E3E4;
+      --backgroundLight: #F5F3F4;
+      --coralMauve: #C87B7A;
+      --heartLevel1: #F5E5E4;
+      --heartLevel2: #E8B8B6;
+      --heartLevel3: #C87B7A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--accentPale) 0%, var(--pairedStatusBg) 50%, var(--resultLevel3Bg) 100%);
+      min-height: 100vh;
+      line-height: 1.9;
+    }
+
+    .nav-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--textMuted);
+      text-decoration: none;
+    }
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .logo {
+      font-family: 'Shippori Mincho', 'Yu Mincho', serif;
+      font-size: clamp(1.75rem, 5vw, 2.25rem);
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--textMuted);
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--accentLight);
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: var(--textSecondary);
+      margin-bottom: 1.2rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .lead {
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .emphasis {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem;
+    }
+
+    .cta-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .cta-text {
+      font-size: 0.9rem;
+      color: var(--textMuted);
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accentLight) 100%);
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(219, 110, 152, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(219, 110, 152, 0.35);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--accentPale);
+    }
+
+    .app-name {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .closing {
+      font-size: 0.9rem;
+      color: var(--textMuted);
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="nav-link">← トップへ戻る</a>
+
+    <header>
+      <h1 class="logo">YesNo Tonight</h1>
+      <p class="tagline">きっかけをそっと置いておく</p>
+    </header>
+
+    <section>
+      <h2>YesNo Tonight を作った理由</h2>
+      <p class="lead">長く一緒にいると、一緒にいること自体が"当たり前"になります。</p>
+      <p>安心感がある一方で、気持ちを改めて伝えることは、だんだん難しくなることもあります。</p>
+      <p>やりたくないわけじゃない。嫌いになったわけでもない。</p>
+      <p>ただ、きっかけがない。</p>
+      <p>なんとなくタイミングを逃して、そのまま今日も普通に過ぎていく。</p>
+      <p>そんな夫婦やパートナーが、きっと少なくないと思っています。</p>
+    </section>
+
+    <section>
+      <h2>このアプリができること</h2>
+      <p>YesNo Tonight は、その"きっかけ"をそっと置いておくアプリです。</p>
+      <p>大げさな会話はいりません。</p>
+      <p><span class="emphasis">yes / no だけ。</span></p>
+      <p>それだけで、</p>
+      <p>「今日はちょっとそういう気分なんだ」</p>
+      <p>と伝えられる。</p>
+      <p>言葉にすると重くなりがちなことも、ボタンひとつなら、少し軽くなります。</p>
+    </section>
+
+    <section>
+      <h2>目指しているのは「解決」ではなく「きっかけ」</h2>
+      <p>このアプリが何かを劇的に変えるわけではありません。</p>
+      <p>でも、</p>
+      <p>ちょっと照れながら笑えたり、<br>「今日はそうなんだ」と知れたり、</p>
+      <p>そんな小さな揺らぎが、関係を少しやわらかくすることはあると思っています。</p>
+    </section>
+
+    <section class="cta">
+      <p class="cta-title">よかったら、試してみてください</p>
+      <p class="cta-text">派手な機能はありません。</p>
+      <p class="cta-text">でも、当たり前の日常の中に<br>ほんの少しのドキドキを置いておきたい人へ。</p>
+      <!-- App Store の URL を発行後に差し替えてください -->
+      <a href="#" class="badge">App Store でダウンロード</a>
+    </section>
+
+    <footer>
+      <p class="app-name">YesNo Tonight。</p>
+      <p class="closing">どうでしょう。</p>
+      <p class="closing">かなり自然に「レスになりがちな関係のきっかけづくり」を表現できています。</p>
+    </footer>
+  </div>
+</body>
+</html>
