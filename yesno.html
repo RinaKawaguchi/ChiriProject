@@ -5,24 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="YesNo Tonight - 当たり前の日常の中に、ほんの少しのドキドキを。yes/no だけで伝える、夫婦やパートナー向けアプリ。">
   <title>YesNo Tonight - きっかけをそっと置いておく</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* YesNo アプリのテーマカラー（app/mobile/constants/colors.ts） */
+    /* YesNo アプリのテーマカラー（Colors定数から） */
     :root {
       --accent: #DB6E98;
       --accentLight: #ECB0CC;
       --accentPale: #F5E8EE;
       --accentLevel2Background: #FAEEF3;
       --accentBackground: #F8E8EF;
-      --pairedStatusBg: #F5EDEB;
-      --resultLevel2Bg: #F5EDEB;
-      --resultLevel3Bg: #F2E8E6;
+      --darkGray: #3D3A3C;
       --tabBar: #8ECAE6;
       --tabBarBorder: #6BA3BD;
       --tabBarInactive: #5A7A8A;
-      --darkGray: #3D3A3C;
       --mediumGray: #5C5A5B;
       --lightGray: #9A9698;
       --text: #2D2B2C;
@@ -34,6 +28,9 @@
       --heartLevel1: #F5E5E4;
       --heartLevel2: #E8B8B6;
       --heartLevel3: #C87B7A;
+      --pairedStatusBg: #F5EDEB;
+      --resultLevel2Bg: #F5EDEB;
+      --resultLevel3Bg: #F2E8E6;
     }
 
     * {
@@ -43,10 +40,10 @@
     }
 
     body {
-      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+      font-family: 'Meiryo UI', 'Meiryo', sans-serif;
       font-weight: 400;
       color: var(--text);
-      background: linear-gradient(180deg, var(--accentPale) 0%, var(--pairedStatusBg) 50%, var(--resultLevel3Bg) 100%);
+      background: linear-gradient(180deg, var(--heartLevel1) 0%, var(--pairedStatusBg) 50%, var(--resultLevel3Bg) 100%);
       min-height: 100vh;
       line-height: 1.9;
     }
@@ -59,7 +56,7 @@
       text-decoration: none;
     }
     .nav-link:hover {
-      color: var(--accent);
+      color: var(--coralMauve);
     }
 
     .container {
@@ -73,11 +70,18 @@
       margin-bottom: 3.5rem;
     }
 
+    .header-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      margin-bottom: 1rem;
+    }
+
     .logo {
-      font-family: 'Shippori Mincho', 'Yu Mincho', serif;
+      font-family: 'Meiryo UI', 'Meiryo', sans-serif;
       font-size: clamp(1.75rem, 5vw, 2.25rem);
       font-weight: 600;
-      color: var(--accent);
+      color: var(--coralMauve);
       letter-spacing: 0.05em;
     }
 
@@ -93,13 +97,13 @@
     }
 
     h2 {
-      font-family: 'Shippori Mincho', serif;
+      font-family: 'Meiryo UI', 'Meiryo', sans-serif;
       font-size: 1.1rem;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--coralMauve);
       margin-bottom: 1rem;
       padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--accentLight);
+      border-bottom: 1px solid var(--heartLevel2);
     }
 
     p {
@@ -119,7 +123,7 @@
     }
 
     .emphasis {
-      color: var(--accent);
+      color: var(--coralMauve);
       font-weight: 500;
     }
 
@@ -130,10 +134,10 @@
     }
 
     .cta-title {
-      font-family: 'Shippori Mincho', serif;
+      font-family: 'Meiryo UI', 'Meiryo', sans-serif;
       font-size: 1.3rem;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--coralMauve);
       margin-bottom: 0.8rem;
     }
 
@@ -145,34 +149,34 @@
 
     .badge {
       display: inline-block;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accentLight) 100%);
+      background: var(--heartLevel3);
       color: white;
       font-size: 0.85rem;
       font-weight: 500;
       padding: 0.5rem 1.2rem;
       border-radius: 2rem;
       text-decoration: none;
-      box-shadow: 0 4px 15px rgba(219, 110, 152, 0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid var(--heartLevel2);
+      transition: transform 0.2s, background 0.2s;
     }
 
     .badge:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(219, 110, 152, 0.35);
+      background: var(--coralMauve);
     }
 
     footer {
       text-align: center;
       margin-top: 3rem;
       padding-top: 2rem;
-      border-top: 1px solid var(--accentPale);
+      border-top: 1px solid var(--heartLevel1);
     }
 
     .app-name {
-      font-family: 'Shippori Mincho', serif;
+      font-family: 'Meiryo UI', 'Meiryo', sans-serif;
       font-size: 1.25rem;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--coralMauve);
     }
 
     .closing {
@@ -228,11 +232,6 @@
       <a href="#" class="badge">App Store でダウンロード</a>
     </section>
 
-    <footer>
-      <p class="app-name">YesNo Tonight。</p>
-      <p class="closing">どうでしょう。</p>
-      <p class="closing">かなり自然に「レスになりがちな関係のきっかけづくり」を表現できています。</p>
-    </footer>
   </div>
 </body>
 </html>
