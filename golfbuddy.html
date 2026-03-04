@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GolfBuddy - 身内ゴルフの"遊びルール"を記録するアプリ。オリンピック、ドラコン、ニアピンなど自由に追加。紙と電卓は、もういりません。">
+  <title>GolfBuddy - 身内ゴルフの記録を、もっと簡単に</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* GolfBuddy アプリのテーマカラー（theme.ts から） */
+    :root {
+      --bg: #2B4C5A;
+      --bgCard: #335865;
+      --primary: #4A7882;
+      --accent: #5B8E97;
+      --border: #223D49;
+      --text: #ffffff;
+      --textMuted: #9FB3BB;
+      --textTitle: #B8C8D0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Meiryo UI', 'Meiryo', 'BIZ UDPGothic', 'Hiragino Kaku Gothic ProN', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bgCard) 100%);
+      min-height: 100vh;
+      line-height: 1.9;
+    }
+
+    .nav-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--textMuted);
+      text-decoration: none;
+    }
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .header-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .logo {
+      font-family: 'Meiryo UI', 'Meiryo', 'BIZ UDPGothic', 'Hiragino Kaku Gothic ProN', sans-serif;
+      font-size: clamp(1.75rem, 5vw, 2.25rem);
+      font-weight: 600;
+      color: var(--textTitle);
+      letter-spacing: 0.05em;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--textMuted);
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-family: 'Meiryo UI', 'Meiryo', 'BIZ UDPGothic', 'Hiragino Kaku Gothic ProN', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--primary);
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: var(--textMuted);
+      margin-bottom: 1.2rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .lead {
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .emphasis {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem;
+    }
+
+    .cta-title {
+      font-family: 'Meiryo UI', 'Meiryo', 'BIZ UDPGothic', 'Hiragino Kaku Gothic ProN', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--textTitle);
+      margin-bottom: 0.8rem;
+    }
+
+    .cta-text {
+      font-size: 0.9rem;
+      color: var(--textMuted);
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      border: 1px solid var(--primary);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .badge:hover {
+      transform: translateY(-2px);
+      background: var(--primary);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .closing {
+      font-size: 0.9rem;
+      color: var(--textMuted);
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="nav-link">← トップへ戻る</a>
+
+    <header>
+      <img src="./assets/golfbuddy.png" alt="GolfBuddy" class="header-icon">
+      <h1 class="logo">GolfBuddy</h1>
+      <p class="tagline">身内ゴルフの記録を、もっと簡単に</p>
+    </header>
+
+    <section>
+      <h2>GolfBuddy とは</h2>
+      <p class="lead">仲間内のゴルフでよくやる「オリンピック」。パター勝負で盛り上がる、あのゲームです。</p>
+      <p>一番遠い人が金。次が銀、銅、鉄。1パットで入れば得点。</p>
+      <p>でも――</p>
+      <p>毎回、紙にメモしたり、途中で計算が分からなくなったり、「今誰がトップだっけ？」となったりしませんか？</p>
+      <p>GolfBuddyは、身内ゴルフの"遊びルール"を記録するためのアプリです。</p>
+    </section>
+
+    <section>
+      <h2>オリンピックだけではありません</h2>
+      <p>コンペでよくある、</p>
+      <p><span class="emphasis">ドラコン</span>　<span class="emphasis">ニアピン</span>　<span class="emphasis">スリーパット</span>　池ポチャなどのマイナス得点</p>
+      <p>こうした項目も自由に追加できます。</p>
+      <p>ローカルルールに合わせて、自分たちだけの得点表を作れます。</p>
+    </section>
+
+    <section>
+      <h2>結果が一目でわかる</h2>
+      <p>ラウンド終了後は、最終結果を一覧で表示。</p>
+      <p>誰が勝ったのか、どれくらい差がついたのか、一目で確認できます。</p>
+      <p>盛り上がりを、そのまま形に残します。</p>
+    </section>
+
+    <section>
+      <h2>次回もすぐに始められる</h2>
+      <p>よく遊ぶ仲間や設定したルールは保存可能。</p>
+      <p>毎回入力し直す必要はありません。</p>
+      <p>「じゃあ今日もやろうか」と言ったら、すぐに始められます。</p>
+    </section>
+
+    <section>
+      <h2>こんなラウンドに</h2>
+      <p>いつもの仲間との週末ゴルフ</p>
+      <p>年1回の身内オリンピック大会</p>
+      <p>会社コンペ</p>
+      <p>ローカルルール満載のイベントラウンド</p>
+      <p>紙と電卓は、もういりません。</p>
+    </section>
+
+    <section class="cta">
+      <p class="cta-title">このアプリについて</p>
+      <p class="cta-text">GolfBuddyは個人で開発・運営しています。<br>サーバー費用などの維持コストがかかっています。</p>
+      <p class="cta-text">もしラウンドがより楽しくなったら、<br>アプリ内から開発を応援していただけると嬉しいです。</p>
+      <a href="https://apps.apple.com/search?term=Golf%20Buddy%20ChiriProject" class="badge" target="_blank" rel="noopener noreferrer">👉 App Storeで見る</a>
+    </section>
+
+  </div>
+</body>
+</html>
